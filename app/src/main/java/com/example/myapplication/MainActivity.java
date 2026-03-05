@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textOutput;
     // https://stackoverflow.com/questions/7552660/convert-float-to-string-and-string-to-float-in-java
     //Katsoin tuolta miten castata floatista stringiin
+    //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+    //Katsoin tuolta miten String.format toimii
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
     public void convertToUsd(View view) {
         float euroInput = Float.parseFloat(textInput.getText().toString());
         float usdOutput = euroInput * 1.05f;
-        String output = Float.toString(usdOutput);
+        String output = String.format("$%.2f", usdOutput);
         textOutput.setText(output);
     }
     public void convertToGbd(View view) {
         float euroInput = Float.parseFloat(textInput.getText().toString());
         float usdOutput = euroInput * 0.83f;
-        String output = Float.toString(usdOutput);
+        String output = String.format("£%.2f", usdOutput);
         textOutput.setText(output);
 
     }
